@@ -1,0 +1,51 @@
+<%layout("/layouts/boillerplate") %>
+<div class="row mt-2">
+    <div class="col-md-8  offset-2" >
+    <h3>Edit your Listings</h3>  
+    <br> <br/>
+    <form  method="post" action="/listing/<%=listing.id%>?_method=PUT" novalidate class="needs-validation">
+
+    <div class="mb-3"> 
+        <lable for="title" class="form-lable">Title</lable>  
+        <input name="listing[title]" 
+        value="<%=listing.title%>"
+         type="text" class="form-control"
+         required/>
+         <div class="valid-feedback"> Title Looks good</div>
+
+     </div>
+     <div class="mb-3">
+        <lable for="description" class="form-lable">Description</lable> 
+        <textarea name="listing[description]" 
+         type="text" rows="4" cols="10" class="form-control" required>
+         <%=listing.description%></textarea>
+         <div class="invalid-feedback"> Pleas enter  a short description</div>
+    </div>
+    <div class="mb-3">
+       <lable for="image" class="form-lable">Image Link</lable> 
+        <input name="listing[image]"  value="<%=listing.image%>" class="form-control" required/>
+        <div class="invalid-feedback">Please enter a valid link</div>
+     </div> 
+     <div class="row">
+     <div class="mb-3 col-md-4"> 
+        <lable for="price" class="form-lable">Price</lable> 
+        <input name="listing[price]"  value="<%=listing.price%>"  class="form-control" required/>
+        <div class="invalid-feedback">Price should be valid</div>
+    </div> 
+    <div class="mb-3 col-md-8">
+        <lable for="country" class="form-lable">Country</lable>  
+        <input name="listing[country]"  value="<%=listing.country%>" type="text" class="form-control" required/>
+        <div class="invalid-feedback">Country name should be valid</div>
+    </div>
+    </div>
+    <div class="mb-3">
+        <lable for="location" class="form-lable">Location</lable> 
+        <input name="listing[location]"  value="<%=listing.location%>" type="text" class="form-control" required/>
+        <div class="invalid-feedback">Location should be valid</div>
+    </div>
+        <button class="btn btn-dark edit-btn mt-3 mb-2">Edit</button>
+    </form>
+    </div>
+    </div>
+    <script src="/js/script.js"></script>
+
